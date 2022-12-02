@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        cursor: pointer;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 50px;
+        background-color: rgb(174, 0, 0);
+        margin-bottom: 1.5rem;
+        border-radius: 50px;
+        transition: all 0.5s linear;
+      }
+      .active {
+        width: 300px;
+        transition: all 0.5s linear;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="1" class="item">item1 1</div>
+    <div id="2" class="item">item1 2</div>
+    <div id="3" class="item">item1 3</div>
+    <div id="4" class="item">item1 4</div>
+    <div id="5" class="item">item1 5</div>
+
+    <script>
+      let items = document.querySelectorAll(".item");
+
+      items.forEach((item) => {
+        item.addEventListener("click", () => {
+          toggledDiv(item.id, items);
+        });
+      });
+
+      toggledDiv = (id, list) => {
+        console.log(id, list);
+        list.forEach(function (element) {
+          element.id == id
+            ? element.classList.toggle("active")
+            : element.classList.remove("active");
+        });
+      };
+    </script>
+  </body>
+</html>
